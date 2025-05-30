@@ -1,50 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Create Employee</title>
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
-  </head>
-  <body>
-    <div class="container mt-5">
-      <div class="card shadow rounded-4">
-        <div class="card-header bg-primary text-white">
-          <h4 class="mb-0">Create Employee</h4>
-        </div>
-        <div class="card-body">
-          <form method="POST" action="">
-            {% comment %} {% csrf_token %} {% endcomment %}
+<head>
+  <meta charset="UTF-8" />
+  <title>Create Employee</title>
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+</head>
+<body>
+  <div class="container mt-5">
+    <div class="card shadow rounded-4">
+      <div class="card-header bg-primary text-white">
+        <h4 class="mb-0">Create Employee</h4>
+      </div>
+      <div class="card-body">
+        <form method="POST" action="" enctype="multipart/form-data">
+          {% csrf_token %}
 
-            <div class="mb-3">
-              <label for="name" class="form-label">Employee Name</label>
-              <input
-                type="text"
-                name="name"
-                id="name"
-                class="form-control"
-                required
-              />
-            </div>
+          <div class="mb-3">
+            <label for="name" class="form-label">Employee Name</label>
+            <input
+              type="text"
+              name="name"
+              id="name"
+              class="form-control"
+              required
+            />
+          </div>
 
-            <div class="mb-3">
-              <label for="department" class="form-label">Department</label>
-              <input type="text" name="name" class="form-control" required/>
-            </div>
+          <div class="mb-3">
+            <label for="department" class="form-label">Department</label>
+            <input
+              type="text"
+              name="department"
+              id="department"
+              class="form-control"
+              required
+            />
+          </div>
 
-            <div class="d-flex justify-content-end">
-                <a href="{% url 'read' %}" class="btn btn-primary"
-                  >Back</a
-                >
-              <button type="submit" class="btn btn-success mx-4">Create</button>
-            </div>
-          </form>
-        </div>
+          <div class="mb-3">
+            <label for="join_date" class="form-label">Joining Date</label>
+            <input
+              type="date"
+              name="join_date"
+              id="join_date"
+              class="form-control"
+             
+            />
+          </div>
+
+          <div class="mb-3">
+            <label for="photo" class="form-label">Photo</label>
+            <input
+              type="file"
+              name="photo"
+              id="photo"
+              class="form-control"
+            />
+          </div>
+
+          <div class="d-flex justify-content-end">
+            <a href="{% url 'read' %}" class="btn btn-primary">Back</a>
+            <button type="submit" class="btn btn-success mx-4">Create</button>
+          </div>
+        </form>
       </div>
     </div>
+  </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-  </body>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
 </html>

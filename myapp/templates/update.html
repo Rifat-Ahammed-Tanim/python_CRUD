@@ -12,8 +12,8 @@
         <h4 class="mb-0">Update Employee</h4>
       </div>
       <div class="card-body">
-        <form method="POST">
-          {% comment %} {% csrf_token %} {% endcomment %}
+        <form method="POST" enctype="multipart/form-data">
+          {% csrf_token %}
 
           <div class="mb-3">
             <label for="name" class="form-label">Employee Name</label>
@@ -25,11 +25,26 @@
             <input type="text" name="department" id="department" class="form-control" value="{{ employee.department }}" required>
           </div>
 
+          <div class="mb-3">
+            <label for="join_date" class="form-label">Joining Date</label>
+            <input
+              type="date"
+              name="join_date"
+              id="join_date"
+              class="form-control"
+              value="{{ employee.join_date|date:'Y-m-d' }}"
+              required
+            />
+          </div>
+
+          <div class="mb-3">
+            <label for="photo" class="form-label">Photo</label>
+            <input type="file" name="photo" id="photo" class="form-control" />
+          </div>
+
           <div class="d-flex justify-content-end">
-            <button type="submit" class="btn btn-primary">Update</button>
-            <a href="{% url 'read' %}" class="btn btn-primary mx-4"
-                  >Back</a
-                >
+            <a href="{% url 'read' %}" class="btn btn-secondary">Back</a>
+            <button type="submit" class="btn btn-primary mx-4">Update</button>
           </div>
         </form>
       </div>
